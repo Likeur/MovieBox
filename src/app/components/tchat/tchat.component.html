@@ -1,0 +1,71 @@
+<main class="bg-gradient-to-b from-green-500/40">
+    <section class="lg:p-4" >
+        <header class="flex lg:justify-center ">
+            <div class="p-2 w-full lg:p-4 lg:w-[90%] lg:rounded-t-lg bg-white border-b shadow-lg flex justify-between items-center border-green-600">
+                <div class="flex items-center">
+                    <button class="lg:hidden " id="menu-btn" (click)="discussion()">
+                        <span id="btn-1" class="h-0.5 block w-6 bg-green-950 "></span>
+                        <span id="btn-2" class="h-0.5 block w-6 bg-green-950 mt-1.5"></span>
+                        <span id="btn-3" class="h-0.5 block w-6 bg-green-950 mt-1.5"></span>
+                    </button>
+                    <h1 class="text-xl font-semibold ml-2">UliZa-<span class="text-green-500">Chat</span></h1>
+                </div>
+                <div>
+                    <h1>...</h1>
+                </div>
+                <div class="relative">
+                    <span class="h-10 w-10 bg-gray-300 rounded-full flex justify-center items-center text-xl"><i class='bx bxs-user text-white'></i></span>
+                    <span class="absolute h-2 w-2 block rounded-full -translate-y-2 bg-green-500 right-1"></span>
+                </div>
+            </div>
+        </header>
+        <main class="flex justify-center h-[91.5vh] lg:h-[80vh] relative">
+            <div [ngClass]="{ sidemenu : menuShow }" class="duration-200 p-4 absolute w-60 h-full border-r left-0 -translate-x-[1000px] lg:-translate-x-0 lg:relative bg-gray-200 lg:w-[20%] border shadow-md">
+                <div class="border-b p-2 border-green-400 flex justify-between">
+                    <p class="font-semibold text-blue-950">Vos discussions</p>
+                    <button class="text-xl font-semibold text-green-600">+</button>
+                </div>
+
+                <div class="p-2">
+                    <button class="flex w-full items-center p-2 rounded-md border shadow-md bg-white">
+                        <div class="relative">
+                            <span class="h-10 w-10 bg-gray-300 rounded-full flex justify-center items-center text-xl"><i class='bx bxs-user text-white'></i></span>
+                        </div>
+                        <div class="ml-2 text-xl">
+                            <h1>Salutations</h1>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-[70%] lg:h-[80vh] h-auto flex flex-col justify-between">
+                <div  class=" p-4 bg-white h-full shadow-md overflow-y-scroll">
+                    <div>
+                        <div class=" bg-gray-200 mt-2 p-2 rounded-t-xl rounded-br-xl w-[50%]">
+                            <h1> hello , comment pourrai-je Vous aider ? </h1>
+                        </div>
+                    </div>
+
+                    <div *ngFor="let message of messages">
+                        <div class="flex justify-end">
+                            <div *ngIf="cliker" class=" bg-green-500 mt-2 text-white rounded-t-xl rounded-bl-xl w-[50%]">
+                                <h1 class="p-2"> {{message}} </h1>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <div *ngIf="cliker" class=" bg-gray-200 mt-2  rounded-t-xl rounded-br-xl w-[50%]">
+                                <h1 class="p-2"> {{ texteAffiche }} </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border-t p-2 border shadow-md flex justify-between items-center">
+                    <button class="bg-gray-200 text-white p-2 h-8 w-8 rounded-full flex justify-center items-center"><i class='bx bx-camera text-green-600 text-xl' ></i></button>
+                    <input type="text" placeholder="Votre question" class="p-2 ml-2 mr-2 border w-full outline-none rounded-full" [(ngModel)]="valeurInput">
+                    <button class="bg-gray-200 text-white p-2 h-8 w-8 rounded-full flex justify-center items-center" (click)="send()"><i class='bx bx-send text-green-600 text-xl'></i></button>
+                </div>
+            </div>
+        </main>
+    </section>
+</main>
+
